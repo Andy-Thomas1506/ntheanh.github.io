@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUNA - Cửa hàng thời trang trực tuyến">
+  <title>LUNA | Fashion Store</title>
+  <style>
+    :root{--ink:#202020;--muted:#777;--line:#e9e6e2;--paper:#fff;--soft:#f7f5f2;--accent:#9b6b4b;--dark:#292522}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--paper)}
+    button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{background:var(--dark);color:#fff;text-align:center;padding:9px 12px;font-size:12px;letter-spacing:.7px}
+    header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1200px;margin:auto;padding:17px 22px;display:flex;align-items:center;gap:25px}
+    .logo{font-family:Georgia,serif;font-size:29px;font-weight:bold;letter-spacing:4px;text-decoration:none;color:var(--ink)}.navlinks{display:flex;gap:22px;margin-left:25px;flex:1}.navlinks a{color:#333;text-decoration:none;font-size:13px}.navlinks a:hover{color:var(--accent)}
+    .nav-actions{display:flex;gap:9px;align-items:center}.icon-btn{border:0;background:transparent;padding:9px;color:#222;font-size:19px}.cart-count{background:var(--accent);color:#fff;border-radius:50%;font-size:10px;padding:3px 6px;vertical-align:top}
+    .hero{max-width:1200px;margin:24px auto 0;padding:0 22px}.hero-inner{min-height:390px;background:linear-gradient(90deg,rgba(20,18,17,.68),rgba(20,18,17,.12)),url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85') center/cover;border-radius:4px;display:flex;align-items:center;padding:55px;color:#fff}
+    .hero-copy{max-width:470px}.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase}.hero h1{font:normal clamp(38px,6vw,66px)/1.05 Georgia,serif;margin:18px 0}.hero p{line-height:1.7;color:#f3efeb;max-width:390px;font-size:14px}
+    .btn{border:1px solid var(--dark);background:var(--dark);color:#fff;padding:13px 20px;font-size:12px;letter-spacing:.8px;text-transform:uppercase;transition:.2s}.btn:hover{background:var(--accent);border-color:var(--accent)}.btn-light{background:#fff;color:#222;border-color:#fff;margin-top:13px}
+    .section{max-width:1200px;margin:65px auto;padding:0 22px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:24px}.section h2{font:normal 32px Georgia,serif;margin:0 0 8px}.sub{color:var(--muted);font-size:13px;margin:0}
+    .tools{display:flex;gap:9px;flex-wrap:wrap}.tools input,.tools select,.field{border:1px solid var(--line);padding:11px 12px;background:#fff;min-width:150px;outline:none}.tools input:focus,.field:focus{border-color:var(--accent)}
+    .categories{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}.chip{border:1px solid var(--line);background:#fff;padding:9px 15px;font-size:12px}.chip.active,.chip:hover{background:var(--dark);border-color:var(--dark);color:#fff}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:25px 17px}.product{min-width:0}.product-img{height:310px;position:relative;background:var(--soft);overflow:hidden}.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.product:hover img{transform:scale(1.045)}.tag{position:absolute;top:12px;left:12px;background:#fff;padding:6px 9px;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+    .quick-add{position:absolute;bottom:12px;left:12px;right:12px;width:calc(100% - 24px);border:0;background:#fff;padding:12px;font-size:11px;text-transform:uppercase;opacity:0;transition:.2s}.product:hover .quick-add{opacity:1}.product-info{padding:12px 1px}.product-name{font-size:13px;margin:0 0 8px}.price{font-weight:bold;font-size:13px}.old-price{color:#999;text-decoration:line-through;font-weight:normal;margin-left:7px;font-size:12px}.rating{font-size:11px;color:#a47a43;margin-top:7px}
+    .promo{background:var(--soft);display:grid;grid-template-columns:1fr 1fr;min-height:260px}.promo img{width:100%;height:100%;object-fit:cover;max-height:310px}.promo-copy{padding:40px;display:flex;flex-direction:column;justify-content:center}.promo-copy h2{font:normal 34px Georgia,serif;margin:12px 0}.promo-copy p{color:var(--muted);line-height:1.7;font-size:13px}
+    footer{background:#24211f;color:#fff;padding:45px 22px 25px;margin-top:65px}.footer-inner{max-width:1150px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}.footer-inner h3{font:normal 23px Georgia,serif;letter-spacing:3px}.footer-inner p,.footer-inner a{color:#c9c3bd;font-size:12px;line-height:1.9;text-decoration:none;display:block}.copyright{max-width:1150px;margin:30px auto 0;border-top:1px solid #48423e;padding-top:18px;color:#aaa;font-size:11px}
+    .overlay{display:none;position:fixed;inset:0;background:#0008;z-index:40}.overlay.show{display:block}.drawer{position:fixed;right:0;top:0;height:100%;width:min(440px,100%);background:#fff;z-index:41;transform:translateX(105%);transition:.25s;padding:25px;overflow:auto}.drawer.show{transform:translateX(0)}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.drawer h2{font:normal 25px Georgia,serif;margin:0}.close{border:0;background:none;font-size:25px}.cart-item{display:grid;grid-template-columns:78px 1fr auto;gap:12px;padding:17px 0;border-bottom:1px solid var(--line)}.cart-item img{width:78px;height:94px;object-fit:cover}.cart-item h4{font-size:13px;margin:3px 0 7px}.cart-item p{font-size:12px;color:var(--muted);margin:0 0 8px}.qty{display:flex;align-items:center;gap:9px}.qty button{border:1px solid var(--line);background:#fff;width:24px;height:24px}.remove{border:0;background:none;color:#999;font-size:12px}.cart-total{display:flex;justify-content:space-between;font-weight:bold;margin:20px 0}.full{width:100%}.empty{text-align:center;color:var(--muted);padding:45px 0;font-size:13px}
+    .modal-wrap{display:none;position:fixed;inset:0;background:#0009;z-index:50;align-items:center;justify-content:center;padding:18px}.modal-wrap.show{display:flex}.modal{background:#fff;width:min(560px,100%);max-height:92vh;overflow:auto;padding:27px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-head h2{font:normal 25px Georgia,serif;margin:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.form-group label{font-size:11px;color:#666}.form-group .field{width:100%;min-width:0}.span2{grid-column:span 2}.notice{font-size:12px;color:var(--muted);line-height:1.6}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#292522;color:#fff;padding:12px 18px;font-size:12px;z-index:80;opacity:0;transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+    .account-area{display:none}.account-area.show{display:block}.account-row{padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.admin-panel{display:none}.admin-panel.show{display:block}
+    @media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}.product-img{height:280px}.navlinks{display:none}.hero-inner{min-height:340px}.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:span 2}}
+    @media(max-width:520px){.nav{padding:13px 15px}.hero{padding:0 14px}.hero-inner{padding:28px;min-height:330px}.section{padding:0 14px;margin:48px auto}.section-head{align-items:start;flex-direction:column}.tools{width:100%}.tools input{flex:1;min-width:0}.products{gap:18px 10px}.product-img{height:220px}.quick-add{opacity:1;padding:10px}.promo{grid-template-columns:1fr}.promo img{height:220px}.promo-copy{padding:28px}.footer-inner{grid-template-columns:1fr}.footer-inner>div:first-child{grid-column:auto}.form-grid{grid-template-columns:1fr}.span2{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <div class="topbar">MIỄN PHÍ VẬN CHUYỂN CHO ĐƠN HÀNG TỪ 799.000₫</div>
+  <header>
+    <nav class="nav">
+      <a class="logo" href="#">LUNA</a>
+      <div class="navlinks"><a href="#home">TRANG CHỦ</a><a href="#products">SẢN PHẨM</a><a href="#collection">BỘ SƯU TẬP</a><a href="#footer">LIÊN HỆ</a></div>
+      <div class="nav-actions">
+        <button class="icon-btn" title="Tài khoản" onclick="openAccount()">♙</button>
+        <button class="icon-btn" title="Giỏ hàng" onclick="openCart()">♧ <span class="cart-count" id="cartCount">0</span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-inner"><div class="hero-copy">
+        <div class="eyebrow">Bộ sưu tập mới · 2025</div>
+        <h1>Phong cách<br>là chính bạn.</h1>
+        <p>Khám phá những thiết kế hiện đại, tinh tế và dễ ứng dụng mỗi ngày. Tìm cảm hứng mới cho tủ đồ của bạn.</p>
+        <a href="#products"><button class="btn btn-light">Khám phá ngay</button></a>
+      </div></div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head"><div><h2>Sản phẩm nổi bật</h2><p class="sub">Những thiết kế được yêu thích tại LUNA</p></div>
+        <div class="tools"><input id="searchInput" type="search" placeholder="Tìm tên sản phẩm..." oninput="renderProducts()">
+          <select id="sortSelect" onchange="renderProducts()"><option value="featured">Sắp xếp: Nổi bật</option><option value="low">Giá thấp đến cao</option><option value="high">Giá cao đến thấp</option></select></div>
+      </div>
+      <div class="categories" id="categories">
+        <button class="chip active" data-cat="Tất cả">Tất cả</button><button class="chip" data-cat="Áo">Áo</button><button class="chip" data-cat="Quần">Quần</button><button class="chip" data-cat="Váy">Váy</button><button class="chip" data-cat="Phụ kiện">Phụ kiện</button>
+      </div>
+      <div class="products" id="productGrid"></div>
+    </section>
+
+    <section class="section" id="collection">
+      <div class="promo">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=85" alt="Bộ sưu tập thời trang">
+        <div class="promo-copy"><div class="eyebrow">LUNA essentials</div><h2>Tối giản nhưng<br>không đơn điệu.</h2><p>Chọn những món đồ có thể kết hợp linh hoạt, tạo nên phong cách riêng trong mọi dịp.</p><a href="#products"><button class="btn">Mua sắm ngay</button></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer"><div class="footer-inner">
+    <div><h3>LUNA</h3><p>Thời trang dành cho phong cách sống hiện đại. Cảm ơn bạn đã lựa chọn và đồng hành cùng chúng tôi.</p></div>
+    <div><strong>HỖ TRỢ</strong><a href="#footer">Chính sách đổi trả</a><a href="#footer">Hướng dẫn mua hàng</a><a href="#footer">Chính sách vận chuyển</a></div>
+    <div><strong>LIÊN HỆ</strong><p>Email: support@luna-fashion.vn<br>Hotline: 1900 0000<br>Thứ 2 – Chủ nhật: 9:00–21:00</p></div>
+  </div><div class="copyright">© 2025 LUNA Fashion Store. Giao diện demo bán hàng.</div></footer>
+
+  <div class="overlay" id="overlay" onclick="closePanels()"></div>
+  <aside class="drawer" id="cartDrawer"><div class="drawer-head"><h2>Giỏ hàng của bạn</h2><button class="close" onclick="closePanels()">×</button></div><div id="cartItems"></div><div id="cartBottom"></div></aside>
+
+  <div class="modal-wrap" id="productModal"><div class="modal"><div class="modal-head"><h2>Thông tin sản phẩm</h2><button class="close" onclick="hideModal('productModal')">×</button></div><div id="productDetail"></div></div></div>
+  <div class="modal-wrap" id="accountModal"><div class="modal"><div class="modal-head"><h2>Tài khoản</h2><button class="close" onclick="hideModal('accountModal')">×</button></div><div id="accountContent"></div></div></div>
+  <div class="modal-wrap" id="checkoutModal"><div class="modal"><div class="modal-head"><h2>Thông tin đặt hàng</h2><button class="close" onclick="hideModal('checkoutModal')">×</button></div>
+    <form id="checkoutForm"><div class="form-grid">
+      <div class="form-group"><label>Họ và tên *</label><input class="field" name="name" required></div><div class="form-group"><label>Số điện thoại *</label><input class="field" name="phone" required pattern="[0-9]{9,11}"></div>
+      <div class="form-group span2"><label>Email</label><input class="field" name="email" type="email"></div>
+      <div class="form-group span2"><label>Địa chỉ nhận hàng *</label><input class="field" name="address" required></div>
+      <div class="form-group"><label>Tỉnh / Thành phố *</label><input class="field" name="city" required></div><div class="form-group"><label>Phương thức thanh toán</label><select class="field" name="payment"><option>Thanh toán khi nhận hàng (COD)</option><option>Chuyển khoản ngân hàng (demo)</option></select></div>
+      <div class="form-group span2"><label>Ghi chú</label><textarea class="field" name="note" rows="2"></textarea></div>
+    </div><p class="notice">Đây là bản demo giao diện. Đơn hàng chỉ được lưu trên trình duyệt, chưa gửi đến cửa hàng hoặc đơn vị vận chuyển.</p><button class="btn full" type="submit">Xác nhận đặt hàng</button></form>
+  </div></div>
+  <div class="toast" id="toast"></div>
+
+<script>
+const products = [
+ {id:1,name:"Áo thun basic cotton",cat:"Áo",price:259000,old:329000,tag:"Bán chạy",rating:"★★★★★",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85",desc:"Áo thun cotton mềm mại, thoáng mát, phù hợp mặc hằng ngày."},
+ {id:2,name:"Sơ mi linen thanh lịch",cat:"Áo",price:429000,old:0,tag:"Mới",rating:"★★★★★",img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=85",desc:"Chất liệu linen nhẹ, phom dáng thoải mái và thanh lịch."},
+ {id:3,name:"Quần jeans straight fit",cat:"Quần",price:599000,old:699000,tag:"-14%",rating:"★★★★☆",img:"https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=85",desc:"Quần jeans phom suông dễ phối cùng áo thun hoặc sơ mi."},
+ {id:4,name:"Váy midi tối giản",cat:"Váy",price:689000,old:0,tag:"Mới",rating:"★★★★★",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85",desc:"Thiết kế midi nữ tính, phù hợp đi làm và dạo phố."},
+ {id:5,name:"Áo khoác blazer",cat:"Áo",price:899000,old:1099000,tag:"Ưu đãi",rating:"★★★★★",img:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=700&q=85",desc:"Blazer phom đứng, tạo vẻ ngoài chỉn chu và hiện đại."},
+ {id:6,name:"Quần ống rộng",cat:"Quần",price:519000,old:0,tag:"",rating:"★★★★☆",img:"https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?auto=format&fit=crop&w=700&q=85",desc:"Quần ống rộng thoải mái, dễ kết hợp nhiều phong cách."},
+ {id:7,name:"Túi đeo vai mini",cat:"Phụ kiện",price:379000,old:449000,tag:"-16%",rating:"★★★★★",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85",desc:"Túi mini nhỏ gọn, tiện dụng cho những buổi đi chơi."},
+ {id:8,name:"Chân váy chữ A",cat:"Váy",price:459000,old:0,tag:"",rating:"★★★★☆",img:"https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=700&q=85",desc:"Chân váy chữ A tôn dáng, có thể phối cùng áo sơ mi hoặc áo thun."}
+];
+let activeCategory="Tất cả";
+let cart=JSON.parse(localStorage.getItem("luna_cart")||"[]");
+let currentUser=JSON.parse(localStorage.getItem("luna_user")||"null");
+let orders=JSON.parse(localStorage.getItem("luna_orders")||"[]");
+let selectedProduct=null;
+const money=n=>n.toLocaleString("vi-VN")+"₫";
+function saveCart(){localStorage.setItem("luna_cart",JSON.stringify(cart));updateCartCount()}
+function updateCartCount(){document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0)}
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
+function renderProducts(){
+ let q=document.getElementById("searchInput").value.toLowerCase().trim(),sort=document.getElementById("sortSelect").value;
+ let list=products.filter(p=>(activeCategory==="Tất cả"||p.cat===activeCategory)&&p.name.toLowerCase().includes(q));
+ if(sort==="low")list.sort((a,b)=>a.price-b.price);if(sort==="high")list.sort((a,b)=>b.price-a.price);
+ document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`<article class="product">
+  <div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy">${p.tag?`<span class="tag">${p.tag}</span>`:""}
+  <button class="quick-add" onclick="showProduct(${p.id})">Xem chi tiết</button></div>
+  <div class="product-info"><p class="product-name">${p.name}</p><span class="price">${money(p.price)}</span>${p.old?`<span class="old-price">${money(p.old)}</span>`:""}<div class="rating">${p.rating}</div></div></article>`).join(""):'<p>Không tìm thấy sản phẩm phù hợp.</p>';
+}
+document.getElementById("categories").addEventListener("click",e=>{let b=e.target.closest("button[data-cat]");if(!b)return;activeCategory=b.dataset.cat;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));renderProducts()});
+function showProduct(id){selectedProduct=products.find(p=>p.id===id);document.getElementById("productDetail").innerHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px"><img src="${selectedProduct.img}" style="width:100%;height:280px;object-fit:cover"><div><h3>${selectedProduct.name}</h3><p class="price">${money(selectedProduct.price)}</p><p class="notice">${selectedProduct.desc}</p><label class="notice">Kích thước</label><select class="field" id="sizeSelect" style="width:100%;margin:7px 0 12px"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select><label class="notice">Màu sắc</label><select class="field" id="colorSelect" style="width:100%;margin:7px 0 18px"><option>Trắng</option><option>Đen</option><option>Be</option><option>Xanh</option></select><button class="btn full" onclick="addToCart(${id})">Thêm vào giỏ</button></div></div>`;showModal("productModal")}
+function addToCart(id){let size=document.getElementById("sizeSelect")?.value||"M",color=document.getElementById("colorSelect")?.value||"Trắng";let found=cart.find(x=>x.id===id&&x.size===size&&x.color===color);if(found)found.qty++;else cart.push({id,size,color,qty:1});saveCart();hideModal("productModal");toast("Đã thêm sản phẩm vào giỏ hàng")}
+function openCart(){renderCart();document.getElementById("overlay").classList.add("show");document.getElementById("cartDrawer").classList.add("show")}
+function renderCart(){let box=document.getElementById("cartItems"),bottom=document.getElementById("cartBottom");if(!cart.length){box.innerHTML='<div class="empty">Giỏ hàng đang trống.<br><br><button class="btn" onclick="closePanels()">Tiếp tục mua sắm</button></div>';bottom.innerHTML="";return}
+ box.innerHTML=cart.map((x,i)=>{let p=products.find(y=>y.id===x.id);return `<div class="cart-item"><img src="${p.img}" alt=""><div><h4>${p.name}</h4><p>${x.size} · ${x.color} · ${money(p.price)}</p><div class="qty"><button onclick="changeQty(${i},-1)">−</button>${x.qty}<button onclick="changeQty(${i},1)">+</button></div></div><button class="remove" onclick="removeCart(${i})">Xóa</button></div>`}).join("");
+ let total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+ bottom.innerHTML=`<div class="cart-total"><span>Tạm tính</span><span>${money(total)}</span></div><p class="notice">Phí vận chuyển sẽ được xác nhận khi cửa hàng xử lý đơn.</p><button class="btn full" onclick="startCheckout()">Tiến hành đặt hàng</button>`;
+}
+function changeQty(i,n){cart[i].qty+=n;if(cart[i].qty<=0)cart.splice(i,1);saveCart();renderCart()}
+function removeCart(i){cart.splice(i,1);saveCart();renderCart()}
+function startCheckout(){if(!cart.length)return;closePanels();document.getElementById("checkoutForm").reset();showModal("checkoutModal")}
+document.getElementById("checkoutForm").addEventListener("submit",e=>{e.preventDefault();let data=Object.fromEntries(new FormData(e.target).entries());let total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);let order={code:"LUNA"+Date.now().toString().slice(-7),date:new Date().toLocaleString("vi-VN"),customer:data,items:cart,total,status:"Chờ xác nhận"};orders.unshift(order);localStorage.setItem("luna_orders",JSON.stringify(orders));cart=[];saveCart();hideModal("checkoutModal");toast("Đặt hàng demo thành công! Mã đơn: "+order.code)});
+function showModal(id){document.getElementById(id).classList.add("show")}
+function hideModal(id){document.getElementById(id).classList.remove("show")}
+function closePanels(){document.getElementById("overlay").classList.remove("show");document.getElementById("cartDrawer").classList.remove("show")}
+function openAccount(){renderAccount();showModal("accountModal")}
+function renderAccount(){let el=document.getElementById("accountContent");if(currentUser){el.innerHTML=`<div class="account-row">Xin chào, <b>${escapeHtml(currentUser.name)}</b></div><div class="account-row">Email: ${escapeHtml(currentUser.email)}</div><div class="account-row">Số đơn hàng: ${orders.filter(o=>o.customer.email===currentUser.email).length}</div><h3 style="font:normal 20px Georgia;margin-top:22px">Đơn hàng gần đây</h3>${orders.filter(o=>o.customer.email===currentUser.email).map(o=>`<div class="account-row">#${o.code} · ${money(o.total)} · ${o.status}</div>`).join("")||'<p class="notice">Bạn chưa có đơn hàng nào.</p>'}<button class="btn full" style="margin-top:18px" onclick="logout()">Đăng xuất</button>`}else{el.innerHTML=`<div class="form-group"><label>Họ và tên</label><input class="field" id="regName" placeholder="Tên của bạn"></div><div class="form-group"><label>Email</label><input class="field" id="regEmail" type="email" placeholder="email@example.com"></div><div class="form-group"><label>Mật khẩu</label><input class="field" id="regPass" type="password" placeholder="Ít nhất 6 ký tự"></div><button class="btn full" onclick="registerUser()">Tạo tài khoản demo</button><p class="notice">Tài khoản demo được lưu trong bộ nhớ trình duyệt hiện tại. Không sử dụng mật khẩu thật.</p>`}}
+function registerUser(){let name=document.getElementById("regName").value.trim(),email=document.getElementById("regEmail").value.trim(),pass=document.getElementById("regPass").value;if(!name||!email||pass.length<6){toast("Vui lòng nhập đủ thông tin, mật khẩu từ 6 ký tự");return}currentUser={name,email};localStorage.setItem("luna_user",JSON.stringify(currentUser));renderAccount();toast("Tạo tài khoản demo thành công")}
+function logout(){currentUser=null;localStorage.removeItem("luna_user");renderAccount();toast("Đã đăng xuất")}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closePanels();document.querySelectorAll(".modal-wrap").forEach(x=>x.classList.remove("show"))}});
+renderProducts();updateCartCount();
+</script>
+</body>
+</html>
