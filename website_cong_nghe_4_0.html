@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tổng quan về Cách mạng công nghiệp 4.0, Công nghệ thông tin 4.0 và Chuyển đổi số.">
+  <title>Khám phá CMCN 4.0 | CNTT 4.0 | Chuyển đổi số</title>
+  <style>
+    :root{
+      --navy:#101a35; --blue:#2563eb; --cyan:#22d3ee; --ink:#172033;
+      --muted:#63708a; --paper:#f5f8ff; --line:#e3eaf6; --white:#fff;
+      --shadow:0 14px 40px rgba(16,26,53,.09); --radius:22px;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65}
+    a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(16,26,53,.96);backdrop-filter:blur(12px);color:white}
+    .nav{max-width:1160px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:800;letter-spacing:.3px;color:#fff;font-size:17px}
+    .brand span{color:var(--cyan)}
+    .navlinks{display:flex;gap:18px;flex-wrap:wrap}
+    .navlinks a{color:#dbeafe;font-size:13px;font-weight:600}
+    .hero{background:radial-gradient(circle at 80% 20%,rgba(34,211,238,.22),transparent 28%),linear-gradient(125deg,#101a35 0%,#173b78 60%,#146b91 100%);color:white;overflow:hidden}
+    .hero-inner{max-width:1160px;margin:auto;padding:82px 22px 76px;display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center}
+    .eyebrow{display:inline-block;padding:7px 12px;border:1px solid rgba(255,255,255,.25);border-radius:99px;color:#a5f3fc;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+    h1{font-size:clamp(34px,5vw,58px);line-height:1.1;margin:20px 0}
+    .hero p{color:#d8e7ff;font-size:17px;max-width:650px}
+    .cta{display:inline-block;margin-top:16px;background:var(--cyan);color:#08233d;padding:12px 20px;border-radius:12px;font-weight:800}
+    .hero-art{position:relative}
+    .hero-art img{width:100%;height:340px;object-fit:cover;border-radius:28px;border:1px solid rgba(255,255,255,.25);box-shadow:0 25px 60px rgba(0,0,0,.25)}
+    .hero-note{position:absolute;bottom:-18px;left:-18px;background:white;color:var(--ink);padding:15px 18px;border-radius:16px;box-shadow:var(--shadow);font-weight:700}
+    .container{max-width:1160px;margin:auto;padding:62px 22px}
+    .section-head{max-width:720px;margin-bottom:28px}
+    .kicker{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
+    h2{font-size:clamp(26px,3vw,36px);line-height:1.2;margin:8px 0 12px;color:var(--navy)}
+    .lead{color:var(--muted);margin:0}
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .era{background:white;border:1px solid var(--line);padding:22px;border-radius:18px;box-shadow:0 6px 20px rgba(16,26,53,.04);position:relative}
+    .era .num{font-size:12px;color:var(--blue);font-weight:900;letter-spacing:1px}
+    .era h3{margin:8px 0;color:var(--navy);font-size:20px}
+    .era p{margin:0;color:var(--muted);font-size:14px}
+    .era.current{background:linear-gradient(145deg,#eaf7ff,#fff);border-color:#9bdff0}
+    .tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .tech{background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 7px 24px rgba(16,26,53,.05)}
+    .tech img{width:100%;height:150px;object-fit:cover;display:block}
+    .tech-body{padding:18px}
+    .tech h3{margin:0 0 7px;color:var(--navy)}
+    .tech p{margin:0;color:var(--muted);font-size:14px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+    .split img{width:100%;height:310px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .info-panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+    .info-panel ul{padding-left:20px;margin-bottom:0}
+    .info-panel li{margin:8px 0}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .pillar{padding:24px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+    .pillar .symbol{font-size:28px}
+    .pillar h3{margin:8px 0 4px;color:var(--navy)}
+    .pillar p{margin:0;color:var(--muted);font-size:14px}
+    .skills{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .skillbox{background:white;border:1px solid var(--line);border-radius:18px;padding:22px}
+    .skillbox h3{margin-top:0;color:var(--navy)}
+    .skillbox li{margin:7px 0;color:var(--muted)}
+    .quote{background:linear-gradient(120deg,#12234a,#1d5590);color:white;border-radius:24px;padding:30px;margin-top:28px}
+    .quote strong{font-size:21px;display:block;margin-bottom:8px}
+    .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .ref{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}
+    .ref small{color:var(--muted);display:block;margin-bottom:7px}
+    .ref a{font-weight:800}
+    footer{background:var(--navy);color:#cbd5e1;text-align:center;padding:25px 20px;font-size:13px}
+    .backtop{position:fixed;right:18px;bottom:18px;background:var(--blue);color:white;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:20px;box-shadow:var(--shadow)}
+    @media(max-width:850px){.hero-inner,.split{grid-template-columns:1fr}.timeline,.tech-grid{grid-template-columns:repeat(2,1fr)}.hero-art img{height:270px}.hero-note{left:10px}}
+    @media(max-width:560px){.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:10px}.timeline,.tech-grid,.pillars,.skills,.refs{grid-template-columns:1fr}.container{padding:45px 18px}.hero-inner{padding:58px 18px}.hero-art img{height:220px}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="#home">DIGITAL<span>4.0</span></a>
+    <div class="navlinks">
+      <a href="#cmcn">CMCN 4.0</a><a href="#congnghe">Công nghệ</a><a href="#chuyendoiso">Chuyển đổi số</a><a href="#sinhvien">Sinh viên</a><a href="#thamkhao">Tham khảo</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Tổng quan kiến thức</span>
+      <h1>Khám phá thế giới<br>công nghệ 4.0</h1>
+      <p>Tìm hiểu Cách mạng công nghiệp 4.0, Công nghệ thông tin 4.0 và chuyển đổi số — những yếu tố đang thay đổi cách con người học tập, làm việc và vận hành xã hội.</p>
+      <a class="cta" href="#cmcn">Bắt đầu khám phá ↓</a>
+    </div>
+    <div class="hero-art">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=85" alt="Bảng mạch điện tử và công nghệ">
+      <div class="hero-note">Kết nối · Dữ liệu · Trí tuệ nhân tạo</div>
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="container" id="cmcn">
+  <div class="section-head"><span class="kicker">01 / Lịch sử</span><h2>Bốn cuộc cách mạng công nghiệp</h2><p class="lead">Cách mạng công nghiệp là sự thay đổi lớn về công nghệ sản xuất, giúp tăng năng suất và làm thay đổi cách con người làm việc.</p></div>
+  <div class="timeline">
+    <article class="era"><span class="num">CMCN 1.0</span><h3>Cơ khí hóa</h3><p>Máy hơi nước thay thế một phần sức người và sức động vật; máy móc cơ khí phát triển.</p></article>
+    <article class="era"><span class="num">CMCN 2.0</span><h3>Điện năng</h3><p>Điện năng và dây chuyền sản xuất tạo điều kiện cho sản xuất hàng loạt.</p></article>
+    <article class="era"><span class="num">CMCN 3.0</span><h3>Tự động hóa</h3><p>Máy tính, công nghệ điện tử và Internet thúc đẩy tự động hóa sản xuất.</p></article>
+    <article class="era current"><span class="num">CMCN 4.0</span><h3>Kết nối số</h3><p>Kết nối thế giới vật lý với thế giới số; AI, dữ liệu lớn và máy móc thông minh ngày càng quan trọng.</p></article>
+  </div>
+</section>
+
+<section class="container" id="cntt">
+  <div class="split">
+    <div>
+      <span class="kicker">02 / Khái niệm</span><h2>Công nghệ thông tin 4.0</h2>
+      <p class="lead">CNTT 4.0 ứng dụng công nghệ hiện đại để xử lý dữ liệu, tự động hóa, kết nối con người – thiết bị – hệ thống qua Internet và tạo ra hệ thống thông minh hỗ trợ ra quyết định.</p>
+      <div class="info-panel" style="margin-top:18px">
+        <strong>CNTT 4.0 là nền tảng của:</strong>
+        <ul><li>Kinh tế số</li><li>Xã hội số</li><li>Làm việc từ xa và cộng tác trực tuyến</li></ul>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=85" alt="Hình ảnh Trái Đất và mạng lưới kết nối số">
+  </div>
+</section>
+
+<section class="container" id="congnghe">
+  <div class="section-head"><span class="kicker">03 / Công nghệ cốt lõi</span><h2>Các công nghệ nền tảng của thời đại 4.0</h2><p class="lead">Những công nghệ dưới đây hỗ trợ kết nối, xử lý dữ liệu và xây dựng các hệ thống thông minh.</p></div>
+  <div class="tech-grid">
+    <article class="tech"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=85" alt="Minh họa trí tuệ nhân tạo"><div class="tech-body"><h3>AI – Trí tuệ nhân tạo</h3><p>Giúp máy tính học từ dữ liệu, nhận diện hình ảnh, giọng nói, văn bản và hỗ trợ dự đoán, ra quyết định.</p></div></article>
+    <article class="tech"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=85" alt="Thiết bị và hệ thống kết nối"><div class="tech-body"><h3>IoT – Internet vạn vật</h3><p>Kết nối các thiết bị vật lý với Internet để gửi và nhận dữ liệu, ví dụ nhà thông minh và đồng hồ thông minh.</p></div></article>
+    <article class="tech"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=85" alt="Biểu đồ phân tích dữ liệu"><div class="tech-body"><h3>Big Data – Dữ liệu lớn</h3><p>Lượng dữ liệu rất lớn, đa dạng và được tạo ra nhanh; có thể dùng để phân tích khách hàng và dự báo thị trường.</p></div></article>
+    <article class="tech"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=700&q=85" alt="Máy chủ điện toán đám mây"><div class="tech-body"><h3>Cloud Computing</h3><p>Lưu trữ và xử lý dữ liệu trên máy chủ Internet, cho phép truy cập dữ liệu mọi lúc, mọi nơi.</p></div></article>
+  </div>
+  <div class="info-panel" style="margin-top:18px"><strong>Blockchain:</strong> Công nghệ hỗ trợ lưu trữ dữ liệu minh bạch, khó bị sửa đổi hoặc làm giả, góp phần tạo niềm tin trong giao dịch số.</div>
+</section>
+
+<section class="container" id="chuyendoiso">
+  <div class="split">
+    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85" alt="Con người làm việc với công nghệ số">
+    <div>
+      <span class="kicker">04 / Ứng dụng</span><h2>Chuyển đổi số là gì?</h2>
+      <p class="lead">Chuyển đổi số không chỉ là đưa dữ liệu lên máy tính. Đây còn là việc thay đổi quy trình, cách quản lý và mô hình hoạt động bằng công nghệ số.</p>
+      <div class="info-panel" style="margin-top:18px">
+        <strong>Lợi ích chính</strong>
+        <ul><li>Nâng cao hiệu quả quản lý và giảm chi phí.</li><li>Thúc đẩy đổi mới và phát triển kinh tế số.</li><li>Cải thiện khả năng tiếp cận dịch vụ cho người dân.</li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="section-head" style="margin-top:45px"><h2>Ba trụ cột chuyển đổi số</h2><p class="lead">Kiến trúc chuyển đổi số hướng công nghệ đến phục vụ con người.</p></div>
+  <div class="pillars">
+    <article class="pillar"><div class="symbol">🏛️</div><h3>Chính phủ số</h3><p>Ứng dụng công nghệ để nâng cao hiệu quả quản lý và cung cấp dịch vụ công.</p></article>
+    <article class="pillar"><div class="symbol">📈</div><h3>Kinh tế số</h3><p>Thúc đẩy hoạt động kinh tế dựa trên dữ liệu và nền tảng số.</p></article>
+    <article class="pillar"><div class="symbol">🌐</div><h3>Xã hội số</h3><p>Mở rộng cơ hội tiếp cận các dịch vụ và tiện ích số cho người dân.</p></article>
+  </div>
+</section>
+
+<section class="container" id="lienhopquoc">
+  <div class="section-head"><span class="kicker">05 / Phát triển bền vững</span><h2>Chuyển đổi số theo định hướng Liên hợp quốc</h2><p class="lead">Chuyển đổi số được thúc đẩy bởi nhu cầu thích nghi, sự phát triển công nghệ và kỳ vọng ngày càng cao của người dùng. Công nghệ cần góp phần phục vụ phát triển bền vững.</p></div>
+  <div class="pillars">
+    <article class="pillar"><div class="symbol">🧑‍🤝‍🧑</div><h3>Con người</h3><p>Quan tâm đến giảm nghèo, giáo dục và y tế.</p></article>
+    <article class="pillar"><div class="symbol">🌱</div><h3>Hành tinh</h3><p>Bảo vệ tài nguyên và ứng phó biến đổi khí hậu.</p></article>
+    <article class="pillar"><div class="symbol">🤝</div><h3>Thịnh vượng</h3><p>Hướng đến kinh tế tuần hoàn và giảm bất bình đẳng.</p></article>
+  </div>
+  <div class="quote"><strong>Thông điệp quan trọng</strong>Công nghệ không phải là đích đến. Cách con người quản lý và sử dụng công nghệ sẽ quyết định tác động của chuyển đổi số.</div>
+</section>
+
+<section class="container" id="sinhvien">
+  <div class="section-head"><span class="kicker">06 / Định hướng học tập</span><h2>Sinh viên cần chuẩn bị gì?</h2><p class="lead">Sinh viên CNTT cần chủ động học tập, làm quen với công nghệ mới và duy trì tinh thần học tập suốt đời.</p></div>
+  <div class="skills">
+    <div class="skillbox"><h3>🧠 Kỹ năng chuyên môn</h3><ul><li>Sử dụng công nghệ</li><li>Tư duy logic và tư duy lập trình</li><li>Giải quyết vấn đề</li></ul></div>
+    <div class="skillbox"><h3>💬 Kỹ năng mềm</h3><ul><li>Giao tiếp và thuyết trình</li><li>Quản lý thời gian</li><li>Làm việc nhóm và tư duy sáng tạo</li></ul></div>
+  </div>
+  <div class="info-panel" style="margin-top:18px"><strong>Lời khuyên:</strong> Học chắc kiến thức cơ bản, thực hành nhiều, làm bài tập và dự án thực tế, học tiếng Anh và thường xuyên cập nhật công nghệ mới.</div>
+</section>
+
+<section class="container" id="thamkhao">
+  <div class="section-head"><span class="kicker">07 / Tìm hiểu thêm</span><h2>Website tham khảo</h2><p class="lead">Các liên kết ngoài để đọc thêm về những chủ đề liên quan. Nội dung tóm tắt chính trên trang này được xây dựng từ Slide 1 bạn cung cấp.</p></div>
+  <div class="refs">
+    <div class="ref"><small>Diễn đàn Kinh tế Thế giới</small><a href="https://www.weforum.org/stories/technological-innovation/the-fourth-industrial-revolution-what-it-means-and-how-to-respond" target="_blank" rel="noopener">Fourth Industrial Revolution ↗</a><p>Tìm hiểu về Cách mạng công nghiệp lần thứ tư.</p></div>
+    <div class="ref"><small>Liên hợp quốc</small><a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">17 Mục tiêu Phát triển bền vững ↗</a><p>Thông tin về các mục tiêu phát triển bền vững.</p></div>
+    <div class="ref"><small>IBM</small><a href="https://www.ibm.com/topics/artificial-intelligence" target="_blank" rel="noopener">Artificial Intelligence ↗</a><p>Giới thiệu về trí tuệ nhân tạo.</p></div>
+    <div class="ref"><small>IBM</small><a href="https://www.ibm.com/topics/internet-of-things" target="_blank" rel="noopener">Internet of Things ↗</a><p>Khái niệm và ứng dụng IoT.</p></div>
+    <div class="ref"><small>IBM</small><a href="https://www.ibm.com/topics/cloud-computing" target="_blank" rel="noopener">Cloud Computing ↗</a><p>Tìm hiểu về điện toán đám mây.</p></div>
+    <div class="ref"><small>Liên hợp quốc</small><a href="https://www.un.org/en/" target="_blank" rel="noopener">United Nations ↗</a><p>Cổng thông tin chính thức của Liên hợp quốc.</p></div>
+  </div>
+</section>
+</main>
+<footer>Website học tập • Chủ đề: CMCN 4.0 – CNTT 4.0 – Chuyển đổi số<br>Ảnh minh họa tải từ Unsplash; các liên kết tham khảo mở website bên ngoài.</footer>
+<a class="backtop" href="#home" aria-label="Lên đầu trang">↑</a>
+</body>
+</html>
